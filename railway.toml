@@ -6,7 +6,8 @@ builder = "NIXPACKS"
 buildCommand = "pnpm install && pnpm db:generate && pnpm build"
 
 [deploy]
-startCommand = "pnpm prisma db push && pnpm start"
+preDeployCommand = "pnpm prisma db push"
+startCommand = "pnpm start"
 healthcheckPath = "/"
 healthcheckTimeout = 100
 restartPolicyType = "ON_FAILURE"
